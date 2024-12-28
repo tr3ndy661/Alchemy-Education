@@ -1,0 +1,44 @@
+.periodic-table {
+  display: inline-block;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  clear: both;
+}
+
+.element {
+  width: 4em;
+  height: 4em;
+  border: 1px solid black;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.element:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.empty-spacer {
+  width: 4em;
+  height: 4em;
+  margin: 1px;
+}
+
+.span-16 { width: calc(16 * 4em + 32px); }
+.span-10 { width: calc(10 * 4em + 20px); }
+
+/* Element category colors */
+.alkali-metal { background: #FF9E9E; }
+.alkaline-earth-metal { background: #FFB673; }
+.transition-metal { background: #FFC0CB; }
+.other-nonmetal { background: #7FE1A4; }
+.noble-gas { background: #EBC4F5; }
+.metalloid { background: #FFB3B3; }
+.halogen { background: #98FB98; }

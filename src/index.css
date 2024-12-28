@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes star-rotate {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+@layer components {
+  button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  button:active::after {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .star-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .nav-button:hover .star-icon {
+    animation: star-rotate 0.5s ease;
+  }
+
+  .nav-button {
+    background: rgba(36, 41, 47, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-button:hover {
+    background: rgba(36, 41, 47, 1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .chemistry-bg {
+    background: linear-gradient(
+      45deg,
+      rgba(30, 16, 197, 0.1),
+      rgba(71, 67, 239, 0.1),
+      rgba(41, 14, 203, 0.1),
+      rgba(20, 3, 222, 0.1)
+    );
+    background-size: 400% 400%;
+    animation: gradient-flow 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chemistry-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(71, 67, 239, 0.05) 0%,
+      rgba(30, 16, 197, 0.05) 100%
+    );
+    filter: blur(40px);
+    animation: bubble-float 8s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .grid-cols-18 {
+    grid-template-columns: repeat(18, minmax(0, 1fr));
+  }
+}
+
+.element {
+  aspect-ratio: 1;
+  @apply transition-transform hover:scale-110 cursor-pointer;
+}

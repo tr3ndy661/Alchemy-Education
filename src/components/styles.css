@@ -1,0 +1,48 @@
+.table {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.cells {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-gap: 2px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.number {
+  font-size: 0.8em;
+  display: block;
+}
+
+.symbol {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+}
+
+.name {
+  font-size: 0.7em;
+  display: block;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categories span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
